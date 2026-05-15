@@ -4,7 +4,7 @@ import TaskList from './components/TaskList';
 import TaskForm from './components/TaskForm';
 import { ClipboardList } from 'lucide-react';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/tasks';
+const API_URL = import.meta.env.VITE_API_URL || 'https://app-taskapp-backend-f3hkeedxdzawc4fm.southeastasia-01.azurewebsites.net/tasks';
 
 function App() {
   const [tasks, setTasks] = useState([]);
