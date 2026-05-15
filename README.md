@@ -1,3 +1,17 @@
+# Azure Deployment
+
+- **Live Application URL:** [https://taskapp-frontend-ashir-dqd0gyckb7behpge.southeastasia-01.azurewebsites.net/](https://taskapp-frontend-ashir-dqd0gyckb7behpge.southeastasia-01.azurewebsites.net/)
+
+## Deployment Evidence
+
+### 1. Successful Pipeline Run
+*(Upload screenshot here: `pipeline-run.png`)*
+
+### 2. Azure Container Registry (ACR) Images
+*(Upload screenshot here: `acr-images.png`)*
+
+---
+
 # Todo Task Manager - DevOps Project
 
 This is a complete, modern full-stack Todo Task Manager application built with React, Node.js/Express, and MySQL. It is fully containerized using Docker, making it suitable for a DevOps CI/CD Azure deployment lab.
