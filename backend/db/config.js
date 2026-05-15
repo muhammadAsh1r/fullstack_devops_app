@@ -8,10 +8,14 @@ const pool = mysql.createPool({
     database: process.env.DB_NAME || 'taskdb',
     waitForConnections: true,
     connectionLimit: 10,
-    queueLimit: 0
+    queueLimit: 0,
+
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
-// Create a promise wrapper for async/await usage
+// Promise wrapper for async/await
 const promisePool = pool.promise();
 
 module.exports = promisePool;
