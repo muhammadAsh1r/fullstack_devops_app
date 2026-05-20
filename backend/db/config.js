@@ -1,7 +1,7 @@
 const mysql = require('mysql2');
 require('dotenv').config();
 
-const pool = mysql.createPool({
+const dbConfig = {
     host: process.env.DB_HOST || 'localhost',
     user: process.env.DB_USER || 'taskuser',
     password: process.env.DB_PASSWORD || 'taskpass',
@@ -9,11 +9,15 @@ const pool = mysql.createPool({
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,
+};
 
-    ssl: {
+if (process.env.DB_SSL === 'true') {
+    dbConfig.ssl = {
         rejectUnauthorized: false
-    }
-});
+    };
+}
+
+const pool = mysql.createPool(dbConfig);
 
 // Promise wrapper for async/await
 const promisePool = pool.promise();
