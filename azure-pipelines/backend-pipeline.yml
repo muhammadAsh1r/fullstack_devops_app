@@ -15,7 +15,7 @@ steps:
   displayName: Login to ACR
   inputs:
     command: login
-    containerRegistry: acr-service-connection
+    containerRegistry: acrtaskappashir
 
 - task: Docker@2
   displayName: Build and Push Backend Image
@@ -24,7 +24,7 @@ steps:
     repository: taskapp-backend
     dockerfile: backend/Dockerfile
     buildContext: backend
-    containerRegistry: acr-service-connection
+    containerRegistry: acrtaskappashir
     tags: latest
 
 - task: AzureWebAppContainer@1
