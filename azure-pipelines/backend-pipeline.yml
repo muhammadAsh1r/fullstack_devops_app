@@ -5,31 +5,36 @@ trigger:
       - develop
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
 variables:
 - group: taskapp-variables
 
 steps:
+
+# Login to Azure Container Registry
 - task: Docker@2
   displayName: Login to ACR
   inputs:
     command: login
-    containerRegistry: acrtaskappashir
+    containerRegistry: 'acrtaskappashir'
 
+# Build and Push Backend Docker Image
 - task: Docker@2
   displayName: Build and Push Backend Image
   inputs:
     command: buildAndPush
-    repository: taskapp-backend
-    dockerfile: backend/Dockerfile
-    buildContext: backend
-    containerRegistry: acrtaskappashir
-    tags: latest
+    repository: 'backend'
+    dockerfile: 'backend/Dockerfile'
+    buildContext: 'backend'
+    containerRegistry: 'acrtaskappashir'
+    tags: |
+      latest
 
+# Deploy Backend Container to Azure App Service
 - task: AzureWebAppContainer@1
   displayName: Deploy Backend App
   inputs:
-    azureSubscription: azure-service-connection
+    azureSubscription: 'azure-service-connection'
     appName: 'app-taskapp-backend-yourname'
-    containers: acrdevopsashir.azurecr.io/taskapp-backend:latest
+    containers: 'acrtaskappashir.azurecr.io/backend:latest'
