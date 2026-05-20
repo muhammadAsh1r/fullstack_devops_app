@@ -36,5 +36,5 @@ steps:
   displayName: Deploy Backend App
   inputs:
     azureSubscription: 'azure-service-connection'
-    appName: 'app-taskapp-backend-f3hkeedxdzawc4fm'
+    appName: 'app-taskapp-backend-yourname-gxccb0e2cwf2a6fj'
     containers: 'acrtaskappashir.azurecr.io/backend:latest'
